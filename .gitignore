@@ -1,0 +1,25 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+
+web/node_modules/
+web/dist/
+web/.wrangler/
+web/.dev.vars
+web/.dev.vars.*
+web/coverage/
+web/*.tsbuildinfo
+web/vite.config.js
+web/vite.config.d.ts
+web/vite.cloudflare.config.js
+web/vite.cloudflare.config.d.ts
+web/vitest.worker.config.js
+web/vitest.worker.config.d.ts
+
+# Clinical text, model responses, references, and local run artefacts remain
+# untracked.
+data/private/
+references/local/
+output/
+var/

@@ -1,0 +1,47 @@
+{
+  "name": "heart-web",
+  "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "CLOUDFLARE_ENV=preview WRANGLER_LOG_PATH=.wrangler/logs vite --config vite.cloudflare.config.ts",
+    "build": "tsc -b && npm run build:production",
+    "build:preview": "CLOUDFLARE_ENV=preview WRANGLER_LOG_PATH=.wrangler/logs vite build --config vite.cloudflare.config.ts",
+    "build:production": "CLOUDFLARE_ENV=production WRANGLER_LOG_PATH=.wrangler/logs vite build --config vite.cloudflare.config.ts",
+    "preview": "npm run build:preview && CLOUDFLARE_ENV=preview WRANGLER_LOG_PATH=.wrangler/logs vite preview --config vite.cloudflare.config.ts",
+    "deploy:preview": "tsc -b && npm run build:preview && WRANGLER_LOG_PATH=.wrangler/logs wrangler deploy --env preview",
+    "deploy:production": "tsc -b && npm run build:production && WRANGLER_LOG_PATH=.wrangler/logs wrangler deploy --env production",
+    "types:cloudflare": "WRANGLER_LOG_PATH=.wrangler/logs wrangler types worker/env.d.ts --env preview --include-runtime false",
+    "types:check": "WRANGLER_LOG_PATH=.wrangler/logs wrangler types worker/env.d.ts --env preview --include-runtime false --check",
+    "test": "vitest run",
+    "test:worker": "WRANGLER_LOG_PATH=.wrangler/logs vitest run --config vitest.worker.config.ts",
+    "smoke:live": "node --env-file=../.env scripts/live-smoke.mjs",
+    "smoke:preview": "node scripts/deployment-smoke.mjs https://heart-preview.shntryd.workers.dev",
+    "smoke:production": "node scripts/deployment-smoke.mjs https://heart.shntryd.workers.dev",
+    "check": "npm run types:check && tsc -b && vitest run && npm run test:worker && npm run build:preview && npm run build:production"
+  },
+  "dependencies": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "overrides": {
+    "sharp": "0.35.3"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.46.0",
+    "@cloudflare/vitest-pool-workers": "^0.18.7",
+    "@cloudflare/workers-types": "^5.20260724.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "jsdom": "^28.0.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.1.5",
+    "vitest": "^4.1.10",
+    "wrangler": "^4.113.0"
+  }
+}

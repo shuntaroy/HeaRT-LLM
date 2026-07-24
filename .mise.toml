@@ -1,0 +1,14 @@
+[tools]
+node = "24"
+
+[tasks.setup]
+description = "Install application dependencies"
+run = "npm --prefix web install"
+
+[tasks.check]
+description = "Run the complete TypeScript and Worker quality gate"
+run = "npm --prefix web run check"
+
+[tasks.dev]
+description = "Run the React application and Cloudflare Worker locally"
+run = "npm --prefix web run dev"

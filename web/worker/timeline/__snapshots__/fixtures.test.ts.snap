@@ -1,0 +1,736 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`frozen timeline reference fixtures > matches open, conflicting, unplaced, partial, relative, and cyclic evidence 1`] = `
+{
+  "anchors": [
+    {
+      "entity_ids": [
+        "ent-001",
+      ],
+      "id": "time-001",
+      "is_dct": false,
+      "precision": "day",
+      "resolution": "stated",
+      "texts": [
+        "2024年1月1日",
+      ],
+      "value": "2024-01-01",
+    },
+  ],
+  "entities": [
+    {
+      "attributes": {
+        "type": "DATE",
+      },
+      "id": "ent-001",
+      "is_dct": false,
+      "label": "TIMEX3",
+      "span": null,
+      "text": "2024年1月1日",
+    },
+    {
+      "attributes": {
+        "state": "executed",
+      },
+      "id": "ent-002",
+      "is_dct": false,
+      "label": "r",
+      "span": null,
+      "text": "治療",
+    },
+  ],
+  "items": [
+    {
+      "anatomy_ids": [],
+      "attributes": {
+        "state": "executed",
+      },
+      "category": "treatment",
+      "entity_id": "ent-002",
+      "id": "item-001",
+      "label": "r",
+      "modifier_ids": [],
+      "placement": {
+        "alternative_anchor_ids": [],
+        "end": null,
+        "evidence_relation_ids": [
+          "rel-001",
+        ],
+        "point_anchor_ids": [],
+        "start": {
+          "anchor_id": "time-001",
+          "inclusive": true,
+          "relation_type": "timeBegin",
+        },
+        "status": "open",
+      },
+      "span": null,
+      "text": "治療",
+      "value_ids": [],
+    },
+  ],
+  "relations": [
+    {
+      "id": "rel-001",
+      "source_id": "ent-002",
+      "target_id": "ent-001",
+      "type": "timeBegin",
+    },
+  ],
+  "run": {
+    "annotator": "synthetic-fixture",
+    "annotator_version": "0",
+    "generated_at": "2026-07-22T00:00:00Z",
+    "model": "none",
+    "persistence": "none",
+    "phase_calls": 0,
+    "usage": null,
+  },
+  "schema_version": "1.0",
+  "source": {
+    "dct": null,
+    "id": "open",
+    "language": "ja",
+    "sha256": "b3cc0475bb78a5026098858e9889acf666d31062d513d303314eca31d36e72f2",
+    "text": "synthetic",
+  },
+  "warnings": [],
+}
+`;
+
+exports[`frozen timeline reference fixtures > matches open, conflicting, unplaced, partial, relative, and cyclic evidence 2`] = `
+{
+  "anchors": [
+    {
+      "entity_ids": [
+        "ent-001",
+      ],
+      "id": "time-001",
+      "is_dct": false,
+      "precision": "day",
+      "resolution": "stated",
+      "texts": [
+        "2024年1月1日",
+      ],
+      "value": "2024-01-01",
+    },
+    {
+      "entity_ids": [
+        "ent-002",
+      ],
+      "id": "time-002",
+      "is_dct": false,
+      "precision": "day",
+      "resolution": "stated",
+      "texts": [
+        "2024年1月10日",
+      ],
+      "value": "2024-01-10",
+    },
+  ],
+  "entities": [
+    {
+      "attributes": {
+        "type": "DATE",
+      },
+      "id": "ent-001",
+      "is_dct": false,
+      "label": "TIMEX3",
+      "span": null,
+      "text": "2024年1月1日",
+    },
+    {
+      "attributes": {
+        "type": "DATE",
+      },
+      "id": "ent-002",
+      "is_dct": false,
+      "label": "TIMEX3",
+      "span": null,
+      "text": "2024年1月10日",
+    },
+    {
+      "attributes": {
+        "state": "executed",
+      },
+      "id": "ent-003",
+      "is_dct": false,
+      "label": "m-key",
+      "span": null,
+      "text": "薬剤",
+    },
+  ],
+  "items": [
+    {
+      "anatomy_ids": [],
+      "attributes": {
+        "state": "executed",
+      },
+      "category": "medicine",
+      "entity_id": "ent-003",
+      "id": "item-001",
+      "label": "m-key",
+      "modifier_ids": [],
+      "placement": {
+        "alternative_anchor_ids": [
+          "time-002",
+          "time-001",
+        ],
+        "end": {
+          "anchor_id": "time-001",
+          "inclusive": true,
+          "relation_type": "timeEnd",
+        },
+        "evidence_relation_ids": [
+          "rel-001",
+          "rel-002",
+        ],
+        "point_anchor_ids": [],
+        "start": {
+          "anchor_id": "time-002",
+          "inclusive": true,
+          "relation_type": "timeBegin",
+        },
+        "status": "conflict",
+      },
+      "span": null,
+      "text": "薬剤",
+      "value_ids": [],
+    },
+  ],
+  "relations": [
+    {
+      "id": "rel-001",
+      "source_id": "ent-003",
+      "target_id": "ent-002",
+      "type": "timeBegin",
+    },
+    {
+      "id": "rel-002",
+      "source_id": "ent-003",
+      "target_id": "ent-001",
+      "type": "timeEnd",
+    },
+  ],
+  "run": {
+    "annotator": "synthetic-fixture",
+    "annotator_version": "0",
+    "generated_at": "2026-07-22T00:00:00Z",
+    "model": "none",
+    "persistence": "none",
+    "phase_calls": 0,
+    "usage": null,
+  },
+  "schema_version": "1.0",
+  "source": {
+    "dct": null,
+    "id": "conflict",
+    "language": "ja",
+    "sha256": "b3cc0475bb78a5026098858e9889acf666d31062d513d303314eca31d36e72f2",
+    "text": "synthetic",
+  },
+  "warnings": [
+    {
+      "code": "reversed-interval",
+      "entity_ids": [
+        "ent-003",
+      ],
+      "message": "An interval begins after it ends.",
+      "relation_ids": [
+        "rel-001",
+        "rel-002",
+      ],
+      "severity": "error",
+    },
+  ],
+}
+`;
+
+exports[`frozen timeline reference fixtures > matches open, conflicting, unplaced, partial, relative, and cyclic evidence 3`] = `
+{
+  "anchors": [],
+  "entities": [
+    {
+      "attributes": {
+        "certainty": "positive",
+      },
+      "id": "ent-001",
+      "is_dct": false,
+      "label": "d",
+      "span": {
+        "end": 1,
+        "start": 0,
+      },
+      "text": "咳",
+    },
+  ],
+  "items": [
+    {
+      "anatomy_ids": [],
+      "attributes": {
+        "certainty": "positive",
+      },
+      "category": "finding",
+      "entity_id": "ent-001",
+      "id": "item-001",
+      "label": "d",
+      "modifier_ids": [],
+      "placement": {
+        "alternative_anchor_ids": [],
+        "end": null,
+        "evidence_relation_ids": [],
+        "point_anchor_ids": [],
+        "start": null,
+        "status": "unplaced",
+      },
+      "span": {
+        "end": 1,
+        "start": 0,
+      },
+      "text": "咳",
+      "value_ids": [],
+    },
+  ],
+  "relations": [],
+  "run": {
+    "annotator": "synthetic-fixture",
+    "annotator_version": "0",
+    "generated_at": "2026-07-22T00:00:00Z",
+    "model": "none",
+    "persistence": "none",
+    "phase_calls": 0,
+    "usage": null,
+  },
+  "schema_version": "1.0",
+  "source": {
+    "dct": null,
+    "id": "unplaced",
+    "language": "ja",
+    "sha256": "814e45732266d9bbea39944cefa570e2661a42142ad15eca4ad75f0192bc31a7",
+    "text": "咳あり。",
+  },
+  "warnings": [
+    {
+      "code": "unplaced-evidence",
+      "entity_ids": [
+        "ent-001",
+      ],
+      "message": "Some extracted clinical evidence has no supported temporal placement.",
+      "relation_ids": [],
+      "severity": "info",
+    },
+  ],
+}
+`;
+
+exports[`frozen timeline reference fixtures > matches open, conflicting, unplaced, partial, relative, and cyclic evidence 4`] = `
+{
+  "anchors": [
+    {
+      "entity_ids": [
+        "ent-001",
+      ],
+      "id": "time-001",
+      "is_dct": false,
+      "precision": "month",
+      "resolution": "stated",
+      "texts": [
+        "2024年1月",
+      ],
+      "value": "2024-01",
+    },
+    {
+      "entity_ids": [
+        "ent-003",
+      ],
+      "id": "time-002",
+      "is_dct": false,
+      "precision": "day",
+      "resolution": "dct-inferred",
+      "texts": [
+        "3日前",
+      ],
+      "value": "2024-01-29",
+    },
+    {
+      "entity_ids": [
+        "ent-002",
+      ],
+      "id": "time-003",
+      "is_dct": false,
+      "precision": "month-day",
+      "resolution": "stated",
+      "texts": [
+        "1月10日",
+      ],
+      "value": "--01-10",
+    },
+  ],
+  "entities": [
+    {
+      "attributes": {
+        "type": "DATE",
+      },
+      "id": "ent-001",
+      "is_dct": false,
+      "label": "TIMEX3",
+      "span": null,
+      "text": "2024年1月",
+    },
+    {
+      "attributes": {
+        "type": "DATE",
+      },
+      "id": "ent-002",
+      "is_dct": false,
+      "label": "TIMEX3",
+      "span": null,
+      "text": "1月10日",
+    },
+    {
+      "attributes": {
+        "type": "DATE",
+      },
+      "id": "ent-003",
+      "is_dct": false,
+      "label": "TIMEX3",
+      "span": null,
+      "text": "3日前",
+    },
+    {
+      "attributes": {
+        "certainty": "positive",
+      },
+      "id": "ent-004",
+      "is_dct": false,
+      "label": "d",
+      "span": null,
+      "text": "所見",
+    },
+  ],
+  "items": [
+    {
+      "anatomy_ids": [],
+      "attributes": {
+        "certainty": "positive",
+      },
+      "category": "finding",
+      "entity_id": "ent-004",
+      "id": "item-001",
+      "label": "d",
+      "modifier_ids": [],
+      "placement": {
+        "alternative_anchor_ids": [],
+        "end": null,
+        "evidence_relation_ids": [
+          "rel-003",
+        ],
+        "point_anchor_ids": [
+          "time-002",
+        ],
+        "start": null,
+        "status": "point",
+      },
+      "span": null,
+      "text": "所見",
+      "value_ids": [],
+    },
+  ],
+  "relations": [
+    {
+      "id": "rel-001",
+      "source_id": "ent-001",
+      "target_id": "ent-002",
+      "type": "timeBefore",
+    },
+    {
+      "id": "rel-002",
+      "source_id": "ent-002",
+      "target_id": "ent-001",
+      "type": "timeBefore",
+    },
+    {
+      "id": "rel-003",
+      "source_id": "ent-004",
+      "target_id": "ent-003",
+      "type": "timeOn",
+    },
+  ],
+  "run": {
+    "annotator": "synthetic-fixture",
+    "annotator_version": "0",
+    "generated_at": "2026-07-22T00:00:00Z",
+    "model": "none",
+    "persistence": "none",
+    "phase_calls": 0,
+    "usage": null,
+  },
+  "schema_version": "1.0",
+  "source": {
+    "dct": "2024-02-01",
+    "id": "partial-relative-cycle",
+    "language": "ja",
+    "sha256": "b3cc0475bb78a5026098858e9889acf666d31062d513d303314eca31d36e72f2",
+    "text": "synthetic",
+  },
+  "warnings": [
+    {
+      "code": "temporal-cycle",
+      "entity_ids": [
+        "ent-001",
+        "ent-003",
+        "ent-002",
+      ],
+      "message": "Temporal constraints contain a cycle; affected anchors use fallback order.",
+      "relation_ids": [],
+      "severity": "error",
+    },
+  ],
+}
+`;
+
+exports[`frozen timeline reference fixtures > preserves the verified interval contract 1`] = `
+{
+  "anchors": [
+    {
+      "entity_ids": [
+        "ent-001",
+      ],
+      "id": "time-001",
+      "is_dct": false,
+      "precision": "day",
+      "resolution": "stated",
+      "texts": [
+        "2024年1月1日",
+      ],
+      "value": "2024-01-01",
+    },
+    {
+      "entity_ids": [
+        "ent-002",
+      ],
+      "id": "time-002",
+      "is_dct": false,
+      "precision": "day",
+      "resolution": "stated",
+      "texts": [
+        "2024年1月10日",
+      ],
+      "value": "2024-01-10",
+    },
+  ],
+  "entities": [
+    {
+      "attributes": {
+        "type": "DATE",
+      },
+      "id": "ent-001",
+      "is_dct": false,
+      "label": "TIMEX3",
+      "span": {
+        "end": 9,
+        "start": 0,
+      },
+      "text": "2024年1月1日",
+    },
+    {
+      "attributes": {
+        "type": "DATE",
+      },
+      "id": "ent-002",
+      "is_dct": false,
+      "label": "TIMEX3",
+      "span": {
+        "end": 42,
+        "start": 32,
+      },
+      "text": "2024年1月10日",
+    },
+    {
+      "attributes": {
+        "certainty": "positive",
+      },
+      "id": "ent-003",
+      "is_dct": false,
+      "label": "d",
+      "span": {
+        "end": 16,
+        "start": 14,
+      },
+      "text": "結節",
+    },
+    {
+      "attributes": {},
+      "id": "ent-004",
+      "is_dct": false,
+      "label": "a",
+      "span": {
+        "end": 13,
+        "start": 11,
+      },
+      "text": "右肺",
+    },
+    {
+      "attributes": {},
+      "id": "ent-005",
+      "is_dct": false,
+      "label": "f",
+      "span": null,
+      "text": "小さい",
+    },
+    {
+      "attributes": {
+        "state": "executed",
+      },
+      "id": "ent-006",
+      "is_dct": false,
+      "label": "m-key",
+      "span": {
+        "end": 22,
+        "start": 20,
+      },
+      "text": "薬剤",
+    },
+    {
+      "attributes": {},
+      "id": "ent-007",
+      "is_dct": false,
+      "label": "m-val",
+      "span": {
+        "end": 26,
+        "start": 22,
+      },
+      "text": "10mg",
+    },
+  ],
+  "items": [
+    {
+      "anatomy_ids": [
+        "ent-004",
+      ],
+      "attributes": {
+        "certainty": "positive",
+      },
+      "category": "finding",
+      "entity_id": "ent-003",
+      "id": "item-001",
+      "label": "d",
+      "modifier_ids": [
+        "ent-005",
+      ],
+      "placement": {
+        "alternative_anchor_ids": [],
+        "end": null,
+        "evidence_relation_ids": [
+          "rel-001",
+        ],
+        "point_anchor_ids": [
+          "time-001",
+        ],
+        "start": null,
+        "status": "point",
+      },
+      "span": {
+        "end": 16,
+        "start": 14,
+      },
+      "text": "結節",
+      "value_ids": [],
+    },
+    {
+      "anatomy_ids": [],
+      "attributes": {
+        "state": "executed",
+      },
+      "category": "medicine",
+      "entity_id": "ent-006",
+      "id": "item-002",
+      "label": "m-key",
+      "modifier_ids": [],
+      "placement": {
+        "alternative_anchor_ids": [],
+        "end": {
+          "anchor_id": "time-002",
+          "inclusive": true,
+          "relation_type": "timeEnd",
+        },
+        "evidence_relation_ids": [
+          "rel-004",
+          "rel-005",
+        ],
+        "point_anchor_ids": [],
+        "start": {
+          "anchor_id": "time-001",
+          "inclusive": true,
+          "relation_type": "timeBegin",
+        },
+        "status": "interval",
+      },
+      "span": {
+        "end": 22,
+        "start": 20,
+      },
+      "text": "薬剤",
+      "value_ids": [
+        "ent-007",
+      ],
+    },
+  ],
+  "relations": [
+    {
+      "id": "rel-001",
+      "source_id": "ent-003",
+      "target_id": "ent-001",
+      "type": "timeOn",
+    },
+    {
+      "id": "rel-002",
+      "source_id": "ent-004",
+      "target_id": "ent-003",
+      "type": "subRegion",
+    },
+    {
+      "id": "rel-003",
+      "source_id": "ent-005",
+      "target_id": "ent-003",
+      "type": "featureSbj",
+    },
+    {
+      "id": "rel-004",
+      "source_id": "ent-006",
+      "target_id": "ent-001",
+      "type": "timeBegin",
+    },
+    {
+      "id": "rel-005",
+      "source_id": "ent-006",
+      "target_id": "ent-002",
+      "type": "timeEnd",
+    },
+    {
+      "id": "rel-006",
+      "source_id": "ent-006",
+      "target_id": "ent-007",
+      "type": "keyValue",
+    },
+  ],
+  "run": {
+    "annotator": "synthetic-fixture",
+    "annotator_version": "0",
+    "generated_at": "2026-07-22T00:00:00Z",
+    "model": "none",
+    "persistence": "none",
+    "phase_calls": 0,
+    "usage": null,
+  },
+  "schema_version": "1.0",
+  "source": {
+    "dct": "2024-01-10",
+    "id": "synthetic",
+    "language": "ja",
+    "sha256": "69b681abaa642214d0f04a7387050e3ee354719eafddf0c38aa64ee1071aea58",
+    "text": "2024年1月1日に右肺の結節を認め、薬剤10mgを開始。2024年1月10日に終了。",
+  },
+  "warnings": [],
+}
+`;
